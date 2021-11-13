@@ -3,7 +3,7 @@
  _Simple yet powerful rule engine_
 
 ```ts
-import { RuleBuilder, RuleEngine, Facts } from  'elif.js';
+import { RuleBuilder, RuleEngine, Facts } from 'elif.js';
 
 const ruleBuilder = new RuleBuilder();
 
