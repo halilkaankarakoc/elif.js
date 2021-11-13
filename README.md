@@ -20,9 +20,11 @@ $ yarn add elif.js
 ```
 
 ### Quick Start
-
+This is a basic example.
 ```ts
 import { RuleBuilder, RuleEngine, Facts } from 'elif.js';
+// or 
+// const { RuleBuilder, RuleEngine, Facts } = require('elif.js');
 
 const ruleBuilder = new RuleBuilder();
 
