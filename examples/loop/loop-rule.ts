@@ -1,4 +1,4 @@
-import { RuleBuilder, RuleEngine, Facts } from '../../index';
+import { RuleBuilder, RuleEngine, Facts } from '../../src/index';
 
 const ruleBuilder = new RuleBuilder();
 

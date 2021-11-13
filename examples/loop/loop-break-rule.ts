@@ -1,8 +1,8 @@
-import { RuleBuilder, RuleEngine, Facts } from '../../index';
+import { RuleBuilder, RuleEngine, Facts } from '../../src/index';
 
 const ruleBuilder = new RuleBuilder();
 
-const loopContinueRule = ruleBuilder
+const loopBreakRule = ruleBuilder
                     .name('loop rule')
                     .description('loop rule description')
                     .beforeAll((ctx) => {
@@ -16,13 +16,15 @@ const loopContinueRule = ruleBuilder
                         condition: (ctx) => ctx.getData('lowerBound') < ctx.getData('upperBound'), 
                         hooks: {
                             onSuccess: (ctx) => {
+                                console.log(`lowerBound is ${ctx.getData('lowerBound')}`);
                                 ctx.setData('lowerBound', ctx.getData('lowerBound') + ctx.getData('increment'));
                                 ctx.jumpTo('cond#2');
                             },
                             onFail: (ctx) => {
                                 ctx.stop();
-                            }
+                            },
                         }
+                        
                     })
                     .when({
                         id: 'cond#2', 
@@ -30,12 +32,12 @@ const loopContinueRule = ruleBuilder
                         condition: (ctx) => ctx.getData('lowerBound') === 3, 
                         hooks: {
                             onSuccess: (ctx) => {
-                            ctx.setData('lowerBound', ctx.getData('lowerBound') + ctx.getData('increment'));
-                            ctx.jumpTo('cond#1');
+                                ctx.stop();
                             },
                             onFail: (ctx) => {
                                 ctx.jumpTo('cond#1');
                             },
+ 
                         }
                     })
                     .afterAll((ctx) => console.log(`lowerBound is ${ctx.getData('lowerBound')}`))
@@ -45,7 +47,7 @@ const ruleEngine = new RuleEngine();
 
 ruleEngine.run([
     {
-        rules: [loopContinueRule],
+        rules: [loopBreakRule],
         facts: []
     }
 ]);
