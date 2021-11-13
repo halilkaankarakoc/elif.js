@@ -80,7 +80,7 @@ const loanRule = ruleBuilder
 	.description('loan rule description')
 	.when({
 	  id:  'cond#1',
-      description:  'Age must be greater than or equal to 18',
+          description:  'Age must be greater than or equal to 18',
 	  condition: (ctx) => ctx.facts.get('age') >= 18,
 	  hooks: {
 		onSuccess: () => console.log('Condition#1 passed!'),
@@ -143,11 +143,11 @@ const counterRule = ruleBuilder
 	  hooks: {
 	    onSuccess:  async (ctx) => {
 	      console.log(ctx.getData('start'));
-		  await  sleep(1000);
-		  ctx.setData('start', ctx.getData('start') - ctx.getData('diff'));
-		  ctx.jumpTo('cond#1');
-		},
-		onFail: (ctx) =>  console.log(ctx.getData('finish')),
+	      await  sleep(1000);
+              ctx.setData('start', ctx.getData('start') - ctx.getData('diff'));
+	      ctx.jumpTo('cond#1');
+	    },
+	    onFail: (ctx) =>  console.log(ctx.getData('finish')),
 	 }
 	})
 	.build();
@@ -172,23 +172,23 @@ const loopBreakRule = ruleBuilder
 	  condition: (ctx) => ctx.getData('lowerBound') < ctx.getData('upperBound'),
 	  hooks: {
 	    onSuccess: (ctx) => {
-		  console.log(`lowerBound is ${ctx.getData('lowerBound')}`);
-		  ctx.setData('lowerBound', ctx.getData('lowerBound') + ctx.getData('increment'));
-		  ctx.jumpTo('cond#2');
+	      console.log(`lowerBound is ${ctx.getData('lowerBound')}`);
+	      ctx.setData('lowerBound', ctx.getData('lowerBound') + ctx.getData('increment'));
+	      ctx.jumpTo('cond#2');
 	    },
 	    onFail: (ctx) => ctx.stop(),
-     }
+     	  }
 	})
 	.when({
 	  id:  'cond#2',
-      description:  'step#2',
+      	  description:  'step#2',
 	  condition: (ctx) =>  ctx.getData('lowerBound') === 3,
 	  hooks: {
-		onSuccess: (ctx) => ctx.stop(),
-		onFail: (ctx) => ctx.jumpTo('cond#1');
+	    onSuccess: (ctx) => ctx.stop(),
+	    onFail: (ctx) => ctx.jumpTo('cond#1');
 	  }
 	})
-    .afterAll((ctx) =>  console.log(`lowerBound is ${ctx.getData('lowerBound')}`))
+    	.afterAll((ctx) =>  console.log(`lowerBound is ${ctx.getData('lowerBound')}`))
 	.build();
 ```
 
