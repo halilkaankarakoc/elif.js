@@ -34,9 +34,10 @@ export class ConditionHooksExecutor {
     }
 
     private async executeOnFailHook(context: RuleEngineContext, hooks?: ConditionHooks) {
+        context.stateManager.setState(new OnFailState(context.stateManager));
+        context.actionManager.setAction({name: 'STOP'});
+
         if (hooks && hooks.onFail) {
-            context.stateManager.setState(new OnFailState(context.stateManager));
-            context.actionManager.setAction({name: 'STOP'});
             try {
                 await hooks.onFail(context);
             } catch (error) {
