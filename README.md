@@ -1,6 +1,25 @@
+<br />
+<p align="center">
+  <a href="https://github.com/halilkaankarakoc/elif.js">
+      <img src="https://icon-library.com/images/rule-icon/rule-icon-24.jpg" alt="Logo" width="125" height="125">
+  </a>
 
-##  elif
- _Simple yet powerful rule engine_
+  <h3 align="center">elif.js</h3>
+
+  <p align="center">
+    Simple yet powerful rule engine
+  </p>
+</p>
+
+## Installation
+
+```bash
+$ npm install elif.js
+or
+$ yarn add elif.js
+```
+
+### Quick Start
 
 ```ts
 import { RuleBuilder, RuleEngine, Facts } from 'elif.js';
@@ -41,8 +60,3 @@ ruleEngine.run([
 ]);
 ```
 
-## Installation
-
-```bash
-$ npm install elif.js
-```
