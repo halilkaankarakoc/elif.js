@@ -85,8 +85,8 @@ const loanRule = ruleBuilder
           description:  'Age must be greater than or equal to 18',
 	  condition: (ctx) => ctx.facts.get('age') >= 18,
 	  hooks: {
-		onSuccess: () => console.log('Condition#1 passed!'),
-		onFail: (ctx) => console.log(`Condition#1 failed because age is ${ctx.facts.get('age')}`),
+	    onSuccess: () => console.log('Condition#1 passed!'),
+	    onFail: (ctx) => console.log(`Condition#1 failed because age is ${ctx.facts.get('age')}`),
 	  }
 	})
 	.when({
