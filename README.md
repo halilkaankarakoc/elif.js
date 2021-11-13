@@ -153,6 +153,8 @@ const counterRule = ruleBuilder
 	 }
 	})
 	.build();
+// you don't have to use Facts instance. You can simply use an object.
+const facts = { start: 10, finish: 0, diff: 1 };
 ```
 
 or 
@@ -192,6 +194,8 @@ const loopBreakRule = ruleBuilder
 	})
     	.afterAll((ctx) =>  console.log(`lowerBound is ${ctx.getData('lowerBound')}`))
 	.build();
+	
+// you don't have to use facts object. You can describe your facts or data at very first in beforeAll.
 ```
 
 NOTE: When context actions ( next(), stop(), jumpTo(conditionId) ) is called, it does not immediately break the condition. It just triggers. Hence always the execution completes and onAfter hook is called.
