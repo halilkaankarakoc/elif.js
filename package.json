@@ -1,0 +1,29 @@
+{
+  "name": "elif.js",
+  "description": "Simple yet powerful rule engine for nodejs",
+  "version": "1.0.17",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "/dist/**/*"
+  ],
+  "repository": "git@github.com:halilkaankarakoc/elif.git",
+  "author": "halilkaankarakoc <kaankarakoc09@gmail.com>",
+  "license": "MIT",
+  "keywords": [
+    "rule engine",
+    "rule",
+    "rules",
+    "engine",
+    "business rules",
+    "flow based programming"
+  ],
+  "scripts": {
+    "build": "tsc"
+  },
+  "devDependencies": {
+    "@types/node": "^15.12.5",
+    "ts-node": "^10.0.0",
+    "typescript": "^4.3.5"
+  }
+}
