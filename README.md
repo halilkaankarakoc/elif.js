@@ -102,7 +102,7 @@ const loanRule = ruleBuilder
 	  condition: (ctx) => ctx.facts.get('salary') >= 2 * ctx.facts.get('demandedLoan'),
 	  hooks: {
 	    onSuccess: () => console.log('Condition#3 passed!'),
-		onFail: (ctx) => console.log(`Condition#3 failed because salary is ${ctx.facts.get('salary')} but demanded loan is ${ctx.facts.get('demandedLoan')}`)
+	    onFail: (ctx) => console.log(`Condition#3 failed because salary is ${ctx.facts.get('salary')} but demanded loan is ${ctx.facts.get('demandedLoan')}`)
 	  }
 	})
 	.build();
