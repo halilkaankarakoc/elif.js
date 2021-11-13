@@ -12,7 +12,7 @@
   </p>
 </p>
 
-elif is a rule engine that you can write functional conditions. Through its useful condition hooks (onBefore, onSuccess, onFail, onAfter), you can take extra actions. It also has very useful context actions such as next, stop and jumpTo that makes easy flow based programming.
+_elif_ is a rule engine that you can write functional conditions. Through its useful condition hooks (onBefore, onSuccess, onFail, onAfter), you can control all  steps of a condition execution. It also has very useful context actions such as next, stop and jumpTo that makes easy flow based programming.
 
 ## Installation
 
