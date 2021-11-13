@@ -37,21 +37,6 @@ export class RuleEngine {
         return mergedFacts;
     }
 
-    runV1(rules: Rule[], facts: Facts[] | {[key: string]: any}[]) {
-        const mergedFacts = this.mergeFacts(facts);
-        this.context.setFacts(mergedFacts);
-        this.ruleEvaluator.evaluate(this.context, rules);
-
-        this.context.stateManager.reset();
-        
-        return {
-            data: this.context.data,
-            facts: this.context.facts.toObject(),
-            rules: rules,
-            conditions: rules.map(rule => rule.specs)
-        };
-    }
-
     run(data: {rules: Rule[], facts: Facts[] | {[key: string]: any}[]}[]) {
         data.forEach(({rules, facts}) => {
             const mergedFacts = this.mergeFacts(facts);
