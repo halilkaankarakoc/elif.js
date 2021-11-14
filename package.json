@@ -1,7 +1,7 @@
 {
   "name": "elif.js",
   "description": "Simple yet powerful rule engine for nodejs",
-  "version": "1.0.24",
+  "version": "1.0.25",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "files": [
