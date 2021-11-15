@@ -67,7 +67,6 @@ export class RuleHooksExecutor {
                     }
                 }
             }
-            // TODO make a decision
             await this.executeAfterAllHook(context, ruleHooks);
         }
     }

@@ -1,6 +1,5 @@
 import { StateManager } from '../state-manager';
 
-// TODO duplication also in state-manager.ts
 export type Action = {
     name: string;
     data?: {
